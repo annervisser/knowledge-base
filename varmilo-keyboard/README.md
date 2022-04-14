@@ -1,5 +1,4 @@
-# TL;DR
-## F-Keys don't work
+# F-Keys don't work
 
 - Fix temporarily: `sudo bash -c "echo 2 > /sys/module/hid_apple/parameters/fnmode"`
 
@@ -8,7 +7,7 @@
     echo options hid_apple fnmode=2 | sudo tee -a /etc/modprobe.d/hid_apple.conf
     sudo update-initramfs -u -k all
     ```
-## Key combinations
+# Key combinations
 | Combination | Effect |
 | ------------------------------------ | ------------------------------------------------------------------ |
 | Fn + right Ctrl                      | menu                                                               |
