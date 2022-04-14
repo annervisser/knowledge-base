@@ -1,17 +1,33 @@
 # TL;DR
 ## F-Keys don't work
 
-Fix temporarily: `sudo bash -c "echo 2 > /sys/module/hid_apple/parameters/fnmode"`
-Make permanent:
-```bash
-echo options hid_apple fnmode=2 | sudo tee -a /etc/modprobe.d/hid_apple.conf
-sudo update-initramfs -u -k all
-```
+- Fix temporarily: `sudo bash -c "echo 2 > /sys/module/hid_apple/parameters/fnmode"`
 
+- Make permanent:
+    ```bash
+    echo options hid_apple fnmode=2 | sudo tee -a /etc/modprobe.d/hid_apple.conf
+    sudo update-initramfs -u -k all
+    ```
+## Key combinations
+| Combination | Effect |
+| ------------------------------------ | ------------------------------------------------------------------ |
+| Fn + right Ctrl                      | menu                                                               |
+| Fn + Win                             | enable/disable Win key                                             |
+| Fn + left Win (more than 3 seconds)  | Caps Lock flashes 3 times, Fn and Win key swapped                  |
+| Fn + left Ctrl (more than 3 seconds) | Caps Lock flashes 3 times, Caps Lock and left Ctrl key swapped     |
+| Pressing Fn + Esc 3 seconds          | keyboard will become defaulted version (Caps Lock flashes 3 times) |
 
-
-# Full gist
+\
+\
+\
+\
+\
+\
+\
+\ 
 ---
+# Full gist
+
 Original source: https://gist.github.com/vladak/b005b0446eeb049a8b4cd546bf11dbbc
 
 # Mechanical keyboards
