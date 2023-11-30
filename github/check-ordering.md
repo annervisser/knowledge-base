@@ -1,8 +1,11 @@
 # Better ordering of PR checks
 > ⚠️ This is actually built into Refined GitHub by default, you just need to enable the :has selector in firefox:
-> Go to `about:settings` and enable `layout.css.has-selector.enabled`
+> 1. Go to `about:settings` and enable `layout.css.has-selector.enabled`
+> 2. Restart firefox
+> 
 
 
+---
 
 Puts more relevant checks at the top of the list, so you don't have to look for them by scrolling:
 ![image](https://github.com/annervisser/knowledge-base/assets/5613416/882b02fd-0603-4671-806a-9f4afd21b32e)
