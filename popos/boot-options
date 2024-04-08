@@ -1,0 +1,5 @@
+ ```shell
+ sudo kernelstub --add-options "acpi_osi=linux" 
+```
+
+ https://www.reddit.com/r/pop_os/comments/myfl4w/acpi_issues/
