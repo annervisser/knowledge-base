@@ -5,10 +5,13 @@ Pop!OS comes with powermode enabled by default (`/etc/NetworkManager/conf.d/defa
 
 ```shell
 # Create our own config
-printf "[connection]\nwifi.powersave = 0\n" | sudo tee /etc/NetworkManager/conf.d/custom-wifi-powersave-off.conf
+printf "[connection]\nwifi.powersave = 2\n" | sudo tee /etc/NetworkManager/conf.d/custom-wifi-powersave-off.conf
 
 # Disable system-provided config (but keep it around)
 sudo mv /etc/NetworkManager/conf.d/default-wifi-powersave-on.conf /etc/NetworkManager/conf.d/default-wifi-powersave-on.conf.bak
+
+# Restart NM
+sudo systemctl restart NetworkManager
 ```
 
 
