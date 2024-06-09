@@ -2,14 +2,14 @@
 
 ### Installing an android emulator (AVD)
 - Install android studio, this is the easiest way to get all the android tools set up
+- Make sure adb and aapt are in your path:
+  - `PATH="$HOME/Android/Sdk/platform-tools:$PATH"`
+  - `PATH="$HOME/Android/Sdk/build-tools/34.0.0:$PATH"`
+
 
 #### Objection
 - install objection: `pip install -U objection` (-U upgrades to the latest version in case it's installed)
 - check install: `objection version`
-
-### Installing patchapk dependencies
-- `sudo apt install aapt apksigner zipalign`
-- apktool: [https://ibotpeaches.github.io/Apktool/install/](https://ibotpeaches.github.io/Apktool/install/)
 
 ### Install a proxy:
 https://mitmproxy.org
@@ -20,12 +20,6 @@ https://mitmproxy.org
 - run the proxy: `./mitmweb`
 - A browser will open, and the proxy will be running at port 8080
 
-### Install patch-apk
-- `gh repo clone annervisser/patch-apk`
-- `cd patch-apk`
-- `git checkout switch-jarsigner-to-objection-signapk`
-- `pip install setuptools`
-- Make sure adb is in your $PATH (android studio: `PATH="$HOME/Android/Sdk/platform-tools:$PATH"`)
 
 ## Execution
 
@@ -42,3 +36,17 @@ https://mitmproxy.org
 - app wont load, until you run `objection explore`
 - run `android sslpinning disable`
 - You should now be able to see requests in mitmproxy
+
+<details>
+  <summary>Old</summary>
+
+### Installing patchapk dependencies
+- `sudo apt install aapt apksigner zipalign`
+- apktool: [https://ibotpeaches.github.io/Apktool/install/](https://ibotpeaches.github.io/Apktool/install/)
+  
+### Install patch-apk
+- `gh repo clone annervisser/patch-apk`
+- `cd patch-apk`
+- `git checkout switch-jarsigner-to-objection-signapk`
+- `pip install setuptools`
+</details>
