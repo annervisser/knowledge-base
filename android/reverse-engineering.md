@@ -24,14 +24,26 @@ https://mitmproxy.org
 ## Execution
 
 ### Patching apk
+#### Getting a play store app
 - Install emulator
 - Install Aurora Store: https://files.auroraoss.com/AuroraStore/Stable/
 - Installed app from aurora store
+
+#### Patching APK
 - Find package name: `adb shell cmd package list packages`
-- Patch apk: `python3 patch-apk.py com.app.package`
-- Run mitmproxy (DISABLE HTTP/2)
-- set proxy configuration via emulator (or in wifi settings)
-- Install certificate by going to mitm.it
+- Find apk path: `adb shell pm com.app.package`
+- Pull apk: `adb pull /data/app/....../base.apk com.app.package.apk`
+- Patch apk: `objection patchapk com.app.package.apk`
+
+#### Installing patched APK
+- Uninstall app in emulator (`adb uninstall com.app.package`)
+- Install patched apk: `adb install com.app.package.apk`
+
+#### Capturing request data
+- Run mitmproxy (DISABLE HTTP/2): `mitmweb --no-http2`
+- set proxy configuration:
+  - Emulator configuration seems not to work properly, use android wifi settings or adb: `adb shell settings put global http_proxy 192.168.x.x:8080` (use computer LAN address, not localhost)
+- Install certificate by going to mitm.it in emulator
 - Open app
 - app wont load, until you run `objection explore`
 - run `android sslpinning disable`
@@ -40,13 +52,13 @@ https://mitmproxy.org
 <details>
   <summary>Old</summary>
 
-### Installing patchapk dependencies
-- `sudo apt install aapt apksigner zipalign`
-- apktool: [https://ibotpeaches.github.io/Apktool/install/](https://ibotpeaches.github.io/Apktool/install/)
-  
-### Install patch-apk
-- `gh repo clone annervisser/patch-apk`
-- `cd patch-apk`
-- `git checkout switch-jarsigner-to-objection-signapk`
-- `pip install setuptools`
+  ### Installing patchapk dependencies
+  - `sudo apt install aapt apksigner zipalign`
+  - apktool: [https://ibotpeaches.github.io/Apktool/install/](https://ibotpeaches.github.io/Apktool/install/)
+    
+  ### Install patch-apk
+  - `gh repo clone annervisser/patch-apk`
+  - `cd patch-apk`192.168.8.230
+  - `git checkout switch-jarsigner-to-objection-signapk`
+  - `pip install setuptools`
 </details>
