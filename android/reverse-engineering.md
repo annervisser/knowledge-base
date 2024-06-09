@@ -23,7 +23,9 @@ https://mitmproxy.org
 ### Install patch-apk
 - `gh repo clone annervisser/patch-apk`
 - `cd patch-apk`
-- `git checkout switch-jarsigner-to-objection-signapk` 
+- `git checkout switch-jarsigner-to-objection-signapk`
+- `pip install setuptools`
+- Make sure adb is in your $PATH (android studio: `PATH="$HOME/Android/Sdk/platform-tools:$PATH"`)
 
 ## Execution
 
